@@ -1,16 +1,27 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavBarComponent } from './controls/nav-bar/nav-bar.component';
+import { NewStudentFormComponent } from './components/new-student-form/new-student-form.component';
+import { TopNavBarComponent } from './controls/top-nav-bar/top-nav-bar.component';
+import { AssociationMembershipComponent } from './components/association-membership/association-membership.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavBarComponent,
+    NewStudentFormComponent,
+    TopNavBarComponent,
+    AssociationMembershipComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot([
+      {path: 'students', component: NewStudentFormComponent},
+      {path: 'associations', component: AssociationMembershipComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
